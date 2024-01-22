@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Russia-Ukraine losses</title>
+    <link href="./losses.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <section id = "filters">
+         <!-- Types of military equipment -->
+        <select id="typeDropdown"  onchange="updateModels()">
+            <!-- <option value="allTypes">All</option>
+            <option value="plane">Planes</option>
+            <option value="tank">Tanks</option>
+            <option value="helicopter">Helicopters</option>
+            <option value="bmp">BMDs</option>
+            <option value="brt">BTRs</option> -->
+        </select>
+        <!-- Models of selected military equipment -->
+        <select id="modelDropdown">
+            <option value="all">All</option>
+            <!-- Options will be dynamically added using JavaScript -->
+        </select>
+        <!-- State of equipment -->
+        <select id="stateDropdown">
+            <option value="allStates">All</option>
+            <option value="destroyed">Destroyed</option>
+            <option value="damaged">Damaged</option>
+            <option value="abandoned">Abandoned</option>
+        </select>
+    </section>
+   
+
+    <section id="main">
+        <!-- Button with onclick event -->
+    <button id="myButton">Click Me</button>
+
+    <!-- Container to display file content -->
+    <div id="contentContainer"></div>
+
+    <!-- Include your JavaScript file -->
+    <script src="data.js"></script>
+  </section>
+   
+      <h5 id="copyright">copyright The Russia-Ukraine losses</h5>
+  </body>
+</html>

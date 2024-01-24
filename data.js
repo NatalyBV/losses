@@ -50,7 +50,16 @@ let equipments = [
         }
     ]
 
-    
+    // Функція для перевірки, чи дропдаун містить певне значення
+    function dropdownContainsValue(dropdown, value) {
+        for (var i = 0; i < dropdown.options.length; i++) {
+        if (dropdown.options[i].value === value) {
+            return true; // Значення вже існує
+        }
+        }
+        return false; // Значення не знайдено
+    }
+
     document.getElementById("myButton").onclick = function() {
         const amount = equipments.filter(tech => tech.type === "BMP" && tech.side === 'Russia').length;
         document.getElementById("contentContainer").innerText = `Russian losses of BMP in January 2024 were: ${amount}.`;
@@ -61,7 +70,7 @@ let equipments = [
     const typeDropdown = document.getElementById('typeDropdown');
     const modelDropdown = document.getElementById('modelDropdown');
 
-    // Функція для додавання унікальних типів або моделей техніки
+    // Функція для додавання унікальних типів/моделей техніки
     function addUniqueOptions(dropdown, defaultValue, options) {
     // Очищаємо поточні опції
     dropdown.innerHTML = '';
@@ -77,7 +86,12 @@ let equipments = [
       const optionElement = document.createElement('option');
       optionElement.value = option;
       optionElement.text = option;
-      dropdown.appendChild(optionElement);
+
+    // Перевіряємо, чи дропдаун не містить вже такого значення
+    if (!dropdownContainsValue(dropdown, option)) {
+        // Якщо значення не існує, додаємо його до дропдауну
+        dropdown.appendChild(optionElement);
+    }
     });
   }
 
@@ -91,19 +105,20 @@ let equipments = [
         addUniqueOptions(modelDropdown, 'All', models);
     }
 
-    // Ініціалізуємо типовий дропдаун
+    // Ініціалізуємо дропдаун типів
     addUniqueOptions(typeDropdown, 'All', equipments.map(equipment => equipment.type));
+    
 
-    // Ініціалізуємо модельний дропдаун з усіма моделями
+    // Ініціалізуємо дропдаун з усіма моделями
     addUniqueOptions(modelDropdown, 'All', equipments.map(equipment => equipment.model));
 
-    // Додаємо обробник події для типового дропдауну
+    // Додаємо обробник події для дропдауну типів
     typeDropdown.addEventListener('change', function () {
     const selectedType = this.value;
     updateModelDropdown(selectedType);
     });
 
-    // Додаємо обробник події для модельного дропдауну
+    // Додаємо обробник події для дропдауну моделей
     modelDropdown.addEventListener('change', function () {
-    // Тут ви можете використовувати обробник події, якщо потрібно щось зробити при виборі моделі
+    // Обробник події, якщо потрібен
     });

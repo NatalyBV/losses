@@ -52,43 +52,58 @@ let equipments = [
 
     
     document.getElementById("myButton").onclick = function() {
-        const amount = technics.filter(tech => tech.type === "BMP" && tech.side === 'Russia').length;
+        const amount = equipments.filter(tech => tech.type === "BMP" && tech.side === 'Russia').length;
         document.getElementById("contentContainer").innerText = `Russian losses of BMP in January 2024 were: ${amount}.`;
 
     }
 
-    // Populate the type drop-down with unique values
-    var typeDropdown = document.getElementById("typeDropdown");
-    addUniqueOptions(typeDropdown, "all", "All", equipments.map(equipment => technic.type));
+    // Отримуємо елементи дропдаунів з DOM
+    const typeDropdown = document.getElementById('typeDropdown');
+    const modelDropdown = document.getElementById('modelDropdown');
 
-    function updateModels() {
-        var typeDropdown = document.getElementById("typeDropdown");
-        var modelDropdown = document.getElementById("modelDropdown");
+    // Функція для додавання унікальних типів або моделей техніки
+    function addUniqueOptions(dropdown, defaultValue, options) {
+    // Очищаємо поточні опції
+    dropdown.innerHTML = '';
+  
+    // Додаємо дефолтне значення дропдауну
+    const defaultOption = document.createElement('option');
+    defaultOption.value = defaultValue;
+    defaultOption.text = 'All';
+    dropdown.appendChild(defaultOption);
+  
+    // Додаємо унікальні типи/моделі
+    options.forEach(option => {
+      const optionElement = document.createElement('option');
+      optionElement.value = option;
+      optionElement.text = option;
+      dropdown.appendChild(optionElement);
+    });
+  }
 
-        // Clear existing options
-        modelDropdown.innerHTML = "";
 
-        // Get the selected type
-        var selectedType = typeDropdown.value;
-
-        // Add "All" option to the model drop-down
-        addOption(modelDropdown, "all", "All");
-
-        // Extract unique models based on the selected type
-        var uniqueModels = [...new Set(equipments.filter(equipment => selectedType === "all" || equipment.type === selectedType).map(equipment => equipment.model))];
-
-        // Add unique models to the model drop-down
-        addUniqueOptions(modelDropdown, uniqueModels, uniqueModels);
+  // Оновлюємо дропдаун з моделями на основі вибраного типу
+    function updateModelDropdown(selectedType) {
+        const models = equipments
+        .filter(equipment => selectedType === 'All' || equipment.type === selectedType)
+        .map(equipment => equipment.model);
+    
+        addUniqueOptions(modelDropdown, 'All', models);
     }
 
-    function addUniqueOptions(selectElement, values, texts) {
-        values.forEach((value, index) => {
-            addOption(selectElement, value, texts[index]);
-        });
-    }
+    // Ініціалізуємо типовий дропдаун
+    addUniqueOptions(typeDropdown, 'All', equipments.map(equipment => equipment.type));
 
-    function addOption(selectElement, value, text) {
-        var option = document.createElement("option");
-        option.value = value
+    // Ініціалізуємо модельний дропдаун з усіма моделями
+    addUniqueOptions(modelDropdown, 'All', equipments.map(equipment => equipment.model));
 
-    }
+    // Додаємо обробник події для типового дропдауну
+    typeDropdown.addEventListener('change', function () {
+    const selectedType = this.value;
+    updateModelDropdown(selectedType);
+    });
+
+    // Додаємо обробник події для модельного дропдауну
+    modelDropdown.addEventListener('change', function () {
+    // Тут ви можете використовувати обробник події, якщо потрібно щось зробити при виборі моделі
+    });

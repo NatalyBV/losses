@@ -1,6 +1,6 @@
 let equipments = [ 
         {
-            "type": "Tank",
+            "type": "Tanks",
             "model": "T-62MV",
             "state": "Destroyed",
             "date": "January 2024",
@@ -21,7 +21,7 @@ let equipments = [
             "side":"Russia"
         },
         {
-            "type": "Helicopter",
+            "type": "Helicopters",
             "model": "Mi-24",
             "state": "Destroyed",
             "date": "January 2023",
@@ -50,53 +50,47 @@ let equipments = [
         }
     ]
 
-    // Функція для перевірки, чи дропдаун містить певне значення
+    // Function to check if the dropdown contains a specific value
     function dropdownContainsValue(dropdown, value) {
         for (var i = 0; i < dropdown.options.length; i++) {
         if (dropdown.options[i].value === value) {
-            return true; // Значення вже існує
+            return true; // The value is found
         }
         }
-        return false; // Значення не знайдено
+        return false; // The value is not found
     }
 
-    document.getElementById("myButton").onclick = function() {
-        const amount = equipments.filter(tech => tech.type === "BMP" && tech.side === 'Russia').length;
-        document.getElementById("contentContainer").innerText = `Russian losses of BMP in January 2024 were: ${amount}.`;
-
-    }
-
-    // Отримуємо елементи дропдаунів з DOM
+    // Getting dropdown elements from the DOM
     const typeDropdown = document.getElementById('typeDropdown');
     const modelDropdown = document.getElementById('modelDropdown');
+    const countryDropdown = document.getElementById('countryDropdown');
 
-    // Функція для додавання унікальних типів/моделей техніки
+    // Function for adding unique types/models of equipment
     function addUniqueOptions(dropdown, defaultValue, options) {
     // Очищаємо поточні опції
     dropdown.innerHTML = '';
   
-    // Додаємо дефолтне значення дропдауну
+    // Adding a default value to the dropdown
     const defaultOption = document.createElement('option');
     defaultOption.value = defaultValue;
     defaultOption.text = 'All';
     dropdown.appendChild(defaultOption);
   
-    // Додаємо унікальні типи/моделі
+    // Adding unique types/models
     options.forEach(option => {
       const optionElement = document.createElement('option');
       optionElement.value = option;
       optionElement.text = option;
 
-    // Перевіряємо, чи дропдаун не містить вже такого значення
+    // Checking if the dropdown does not contain such a value
     if (!dropdownContainsValue(dropdown, option)) {
-        // Якщо значення не існує, додаємо його до дропдауну
+        // If the value does not exist, add it to the dropdown
         dropdown.appendChild(optionElement);
     }
     });
   }
 
-
-  // Оновлюємо дропдаун з моделями на основі вибраного типу
+    // Updating the dropdown with models based on the selected type
     function updateModelDropdown(selectedType) {
         const models = equipments
         .filter(equipment => selectedType === 'All' || equipment.type === selectedType)
@@ -105,20 +99,35 @@ let equipments = [
         addUniqueOptions(modelDropdown, 'All', models);
     }
 
-    // Ініціалізуємо дропдаун типів
+    // Initializing the dropdown for equipment types
     addUniqueOptions(typeDropdown, 'All', equipments.map(equipment => equipment.type));
     
 
-    // Ініціалізуємо дропдаун з усіма моделями
+    // Initializing the dropdown with all models
     addUniqueOptions(modelDropdown, 'All', equipments.map(equipment => equipment.model));
 
-    // Додаємо обробник події для дропдауну типів
+    // Adding an event handler for the dropdown of equipment types
     typeDropdown.addEventListener('change', function () {
     const selectedType = this.value;
     updateModelDropdown(selectedType);
     });
 
-    // Додаємо обробник події для дропдауну моделей
+    // Adding an event handler for the dropdown of equipment models
     modelDropdown.addEventListener('change', function () {
-    // Обробник події, якщо потрібен
+    // Event handler is here, if needed
     });
+
+
+    document.getElementById("checkLosses").onclick = function() {
+        let amount1;
+        let amount2;
+        if(typeDropdown.value === 'All') {
+            amount1 = equipments.filter(tech => tech.side === 'Russia').length;
+            amount2 = equipments.filter(tech => tech.side === 'Ukraine').length;
+        } else {
+            amount1 = equipments.filter(tech => tech.type === typeDropdown.value && tech.side === 'Russia').length;
+            amount2 = equipments.filter(tech => tech.type === typeDropdown.value && tech.side === 'Ukraine').length;
+        }
+        document.getElementById("rusLosses").innerText = `${typeDropdown.value} : ${amount1}`;
+        document.getElementById("ukrLosses").innerText = `${typeDropdown.value} : ${amount2}`;    
+    }

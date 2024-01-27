@@ -1,1 +1,1 @@
-# losses
+The product allows to check losses statistics in Russia-Ukraine war including possibility to filter equipment by type, model, and the state of equipment (damaged, destroyed, abandoned), as well as view losses on charta chart.

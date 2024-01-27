@@ -2,40 +2,71 @@
 <html>
   <head>
     <title>The Russia-Ukraine losses</title>
-    <link href="./losses.css" rel="stylesheet" type="text/css" />
+    <link href="./resources/losses.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <section id = "filters">
-         <!-- Types of military equipment -->
-        <select id="typeDropdown"  onchange="updateModels()">
-            
-        </select>
-        <!-- Models of selected military equipment -->
-        <select id="modelDropdown">
-            <option value="all">All</option>
+    <header>
+      <p>Losses statistics in Russia-Ukraine war</p>
+    </header>
+    <!-- Main Content -->
+    <div class="main-content">
+      <section id = "filters">
+        <div id="filtersDropdown">
+          <!-- Types of military equipment -->
+          <select id="typeDropdown"  onchange="updateModels()">
+          </select>
+          <!-- Models of selected military equipment -->
+          <select id="modelDropdown">
             <!-- Options will be dynamically added using JavaScript -->
-        </select>
-        <!-- State of equipment -->
-        <select id="stateDropdown">
+          </select>
+          <!-- State of equipment -->
+          <select id="stateDropdown">
             <option value="allStates">All</option>
             <option value="destroyed">Destroyed</option>
             <option value="damaged">Damaged</option>
             <option value="abandoned">Abandoned</option>
-        </select>
-    </section>
+          </select>   
+        </div> 
+        <!-- Button with onclick event that displays results -->
+        <div id="buttonResults">
+          <button id="checkLosses">Check losses</button>
+        </div>
+      </section>
+
+      <section id="results">
+        <!-- Container to display results -->
+        <div id="lossesResults">
+          <div class="losses">
+            <div class="center">
+              <div class="content">
+                <h2>Ukraine losses in January 2024:</h2>
+                <div id="ukrLosses"></div>
+            </div>
+          </div>
+        </div>
+        <div class="losses">
+          <div class="center">
+            <div class="content">
+              <h2>Russia losses in January 2024:</h2>
+              <div id="rusLosses"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
    
-
-    <section id="main">
-        <!-- Button with onclick event -->
-    <button id="myButton">Click Me</button>
-
-    <!-- Container to display file content -->
-    <div id="contentContainer"></div>
-
-    <!-- Include your JavaScript file -->
-    <script src="data.js"></script>
-  </section>
-   
-      <h5 id="copyright">copyright The Russia-Ukraine losses</h5>
+      <section id="charts">
+        <!-- Comparison chart -->
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="content">
+        <span class="copyright">© 2024  The Russia-Ukraine losses</span>
+      </div>
+    </footer>  
   </body>
+ 
+  <!-- Include your JavaScript file -->
+  <script src="data.js"></script>
 </html>

@@ -1,0 +1,148 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Noto Serif JP', sans-serif;
+  font-size: 1rem;
+}
+
+header {
+  top: 0;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 5rem;
+  border-bottom: solid 1px #c6c1c1;
+  background-color: white;
+  padding: 1.875rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 2rem;
+}
+
+.main-content {
+  top: 5.3125rem;
+  position: relative;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url('./img/prapor.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+/* Styles for filters */
+select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  color: #593b3b;
+  font-size: 1.2rem;
+}
+
+#filters {
+  text-align: center;
+}
+
+#filtersDropdown {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#typeDropdown { /* Styles for type dropdown */
+  width: 12.5rem;
+}
+
+#modelDropdown { /* Styles for model dropdown */
+  width: 12.5rem;
+}
+
+#stateDropdown { /* Styles for state dropdown */
+  width: 12.5rem;
+}
+
+/* Styles for results button */
+#buttonResults {
+  display: block;
+}
+
+#checkLosses {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#checkLosses:hover { /* Changing the button's background color on hover */
+  background-color: #2980b9;
+}
+
+/* Styles for results */
+#lossesResults {
+  display: flex;
+  justify-content: space-between;
+  padding: 4rem 5%;
+}
+
+.losses {
+  flex: 1;
+  padding: 2rem;
+  margin: 0px 1.25rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  bottom: 1rem;
+  color: #ffffff;
+}
+
+#ukrLosses,
+#rusLosses {
+  background-color: white;
+  opacity: 1; /* Set the opacity to 1 for a fully opaque background */
+  padding: 10px;
+  position: relative;
+  z-index: 1; /* Place the divs above the background-container */
+  opacity: 0.8;
+  border-radius: 0.5rem;
+}
+
+/* Styles for chart */
+
+
+/* Styles for footer */
+footer {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  margin-top: auto;
+  display: flex;
+  width: 100%;
+}
+
+footer .content {
+  color: #000000;
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+  font-weight: bold;
+}

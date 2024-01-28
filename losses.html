@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>The Russia-Ukraine losses</title>
-    <link href="./resources/losses.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_red.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  </head>
-  <body>
-    <header>
-      <p>Losses statistics in Russia-Ukraine war</p>
-    </header>
-    <!-- Main Content -->
-    <div class="main-content">
-      <section id = "filters">
-        <div id="filtersDropdown">
-          <!-- Types of military equipment -->
-          <select id="typeDropdown"  onchange="updateModels()">
+
+<head>
+  <title>The Russia-Ukraine losses</title>
+  <link href="./resources/losses.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_red.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body>
+  <header>
+    <p>Losses statistics in Russia-Ukraine war</p>
+  </header>
+  <!-- Main Content -->
+  <div class="main-content">
+    <section id="filtersSection">
+      <div id="filters">
+        <!-- Types of military equipment -->
+        <div>
+          <label for="typeDropdown" id="typeText">Weapons platform:</label>
+          <select id="typeDropdown" onchange="updateModels()">
           </select>
-          <!-- Models of selected military equipment -->
+        </div>
+        <!-- Models of selected military equipment -->
+        <div>
+          <label for="modelDropdown" id="modelText">Model:</label>
           <select id="modelDropdown">
             <!-- Options will be dynamically added using JavaScript -->
           </select>
-          <!-- State of equipment -->
+        </div>
+        <!-- State of equipment -->
+        <div>
+          <label for=“stateDropdown“ id="stateText">State (e.g. destroyed):</label>
           <select id="stateDropdown">
-            <option value="allStates">All</option>
+            <option value=“allStates“>All</option>
             <option value="destroyed">Destroyed</option>
             <option value="damaged">Damaged</option>
             <option value="abandoned">Abandoned</option>
           </select>
-           <!-- Date -->
-          <label for="start-date" id="startDateText">Start date:</label>
-          <input type="text" id="startDate" placeholder="Enter start date">
-
-          <label for="end-date" id="endDateText">End date:</label>
-          <input type="text" id="endDate">
-        </div> 
-        <!-- Button with onclick event that displays results -->
-        <div id="buttonResults">
-          <button id="checkLosses">Check losses</button>
         </div>
-      </section>
+        <!-- Date -->
+        <div>
+          <label for="startDate" id="startDateText">Start date:</label>
+          <input type="text" id="startDate" placeholder="Enter start date">
+        </div>
+        <div>
+          <label for="endDate" id="endDateText">End date:</label>
+          <input type="text" id="endDate">
+        </div>
+      </div>
+      <!-- Button with onclick event that displays results -->
+      <div id="buttonResults">
+        <button id="checkLosses">Check losses</button>
+      </div>
+    </section>
 
-      <section id="results">
-        <!-- Container to display results -->
-        <div id="lossesResults">
-          <div class="losses">
-            <div class="center">
-              <div class="content">
-                <h2>Ukraine losses in January 2024:</h2>
-                <div id="ukrLosses"></div>
+    <section id="results">
+      <!-- Container to display results -->
+      <div id="lossesResults">
+        <div class="losses">
+          <div class="center">
+            <div class="content">
+              <h2>Ukraine losses in January 2024:</h2>
+              <div id="ukrLosses"></div>
             </div>
           </div>
         </div>
@@ -61,22 +75,23 @@
             </div>
           </div>
         </div>
-        </div>
-      </section>
-   
-      <section id="charts">
-        <!-- Comparison chart -->
-      </section>
-    </div>
-    <!-- Footer -->
-    <footer>
-      <div class="content">
-        <span class="copyright">© 2024  The Russia-Ukraine losses</span>
       </div>
-    </footer>  
-  </body>
- 
-  <!-- Include your JavaScript file -->
-  <script src="data.js"></script>
-  <script src="calendar.js"></script>
+    </section>
+
+    <section id="charts">
+      <!-- Comparison chart -->
+    </section>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="content">
+      <span class="copyright">© 2024 The Russia-Ukraine losses</span>
+    </div>
+  </footer>
+</body>
+
+<!-- Include your JavaScript file -->
+<script src="data.js"></script>
+<script src="calendar.js"></script>
+
 </html>

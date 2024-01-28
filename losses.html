@@ -3,6 +3,9 @@
   <head>
     <title>The Russia-Ukraine losses</title>
     <link href="./resources/losses.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_red.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
   <body>
     <header>
@@ -25,7 +28,13 @@
             <option value="destroyed">Destroyed</option>
             <option value="damaged">Damaged</option>
             <option value="abandoned">Abandoned</option>
-          </select>   
+          </select>
+           <!-- Date -->
+          <label for="start-date" id="startDateText">Start date:</label>
+          <input type="text" id="startDate" placeholder="Enter start date">
+
+          <label for="end-date" id="endDateText">End date:</label>
+          <input type="text" id="endDate">
         </div> 
         <!-- Button with onclick event that displays results -->
         <div id="buttonResults">
@@ -69,4 +78,5 @@
  
   <!-- Include your JavaScript file -->
   <script src="data.js"></script>
+  <script src="calendar.js"></script>
 </html>

@@ -45,7 +45,7 @@ body {
 }
 
 /* Styles for filters */
-select {
+select, #startDate, #endDate {
   padding: 8px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -53,6 +53,7 @@ select {
   margin-bottom: 10px;
   color: #593b3b;
   font-size: 1.2rem;
+  width: 12.5rem;
 }
 
 #filters {
@@ -64,17 +65,17 @@ select {
   margin-bottom: 1rem;
 }
 
-#typeDropdown { /* Styles for type dropdown */
-  width: 12.5rem;
+#startDateText, #endDateText {
+  color:#ffffff;
+  font-weight: bold;
 }
 
-#modelDropdown { /* Styles for model dropdown */
-  width: 12.5rem;
+#startDate::placeholder {
+  font-size: 1rem;
+  color: #999;
+  font-style: italic;
 }
 
-#stateDropdown { /* Styles for state dropdown */
-  width: 12.5rem;
-}
 
 /* Styles for results button */
 #buttonResults {

@@ -68,6 +68,7 @@ select, #startDate, #endDate {
   color: #593b3b;
   font-size: 1.2rem;
   width: 12.5rem;
+  height:2.3rem;
   margin-right: 0.625rem;
 }
 
@@ -76,9 +77,19 @@ select, #startDate, #endDate {
   margin-bottom: 0.5rem;
 }
 
-#startDateText, #endDateText, #typeText, #modelText, #stateText {
+#startDateText, #endDateText, #typeText, #modelText, #stateText, #sovietUnionText {
   color:#ffffff;
   font-weight: bold;
+}
+
+#sovietUnion {
+  font: inherit;
+  margin-top:0.5rem;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0.15em solid;
+  border-radius: 0.15em;
+  margin-bottom: 0.8rem;
 }
 
 #startDate::placeholder {

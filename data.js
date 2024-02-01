@@ -1,133 +1,229 @@
-let equipments = [ 
-        {
-            "type": "Tanks",
-            "model": "T-62MV",
-            "state": "Destroyed",
-            "date": "January 2024",
-            "side":"Russia"
-        },
-        {
-            "type": "BMP",
-            "model": "BMP-2",
-            "state": "Abandoned",
-            "date": "January 2024",
-            "side":"Russia"
-        },
-        {
-            "type": "BMP",
-            "model": "BMP-4M",
-            "state": "Destroyed",
-            "date": "January 2024",
-            "side":"Russia"
-        },
-        {
-            "type": "Helicopters",
-            "model": "Mi-24",
-            "state": "Destroyed",
-            "date": "January 2023",
-            "side":"Russia"
-        },
-        {
-            "type": "BTR",
-            "model": "BTR-82A",
-            "state": "Damaged",
-            "date": "January 2024",
-            "side":"Ukraine"
-        },
-        {
-            "type": "BMP",
-            "model": "BMP-90",
-            "state": "Destroyed",
-            "date": "January 2024",
-            "side":"Russia"
-        },
-        {
-            "type": "Planes",
-            "model": "A-50",
-            "state": "Destroyed",
-            "date": "January 2024",
-            "side":"Russia"
-        }
-    ]
+let equipments = [
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-2",
+        "state": "Abandoned",
+        "date": "January 2024",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Destroyed",
+        "date": "March 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "BTR",
+        "model": "BTR-82A",
+        "state": "Damaged",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Ukraine"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-90",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Planes",
+        "model": "A-50",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-90",
+        "state": "Damaged",
+        "date": "January 2024",
+        "isSovietUnion": true,
+        "side": "Ukraine"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-90",
+        "state": "Abandoned",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    }
+]
 
-    // Function to check if the dropdown contains a specific value
-    function dropdownContainsValue(dropdown, value) {
-        for (var i = 0; i < dropdown.options.length; i++) {
+// Function to check if the dropdown contains a specific value
+function dropdownContainsValue(dropdown, value) {
+    for (var i = 0; i < dropdown.options.length; i++) {
         if (dropdown.options[i].value === value) {
             return true; // The value is found
         }
-        }
-        return false; // The value is not found
     }
+    return false; // The value is not found
+}
 
-    // Getting dropdown elements from the DOM
-    const typeDropdown = document.getElementById('typeDropdown');
-    const modelDropdown = document.getElementById('modelDropdown');
-    const countryDropdown = document.getElementById('countryDropdown');
+// Checks if a given date is within a specified date range.
+function dateCheck(from, to, check) {
+    const parseDate = (dateString) => {
+        const [year, month, day] = dateString.split(' ');
 
-    // Function for adding unique types/models of equipment
-    function addUniqueOptions(dropdown, defaultValue, options) {
-    // Очищаємо поточні опції
+        if (day) {
+            // Use the specified day if exists
+            return new Date(`${month} ${day}, ${year}`);
+        } else {
+            // If the day is not specified, use the last day of the month
+            return new Date(`${month} 1, ${year}`);
+        }
+    };
+
+    const fromDate = parseDate(from);
+    const toDate = parseDate(to);
+    const checkDate = parseDate(check);
+
+    return checkDate >= fromDate && checkDate <= toDate;
+}
+
+// Getting dropdown elements from the DOM
+const weaponPlatformDropdown = document.getElementById('weaponPlatformDropdown');
+const modelDropdown = document.getElementById('modelDropdown');
+const countryDropdown = document.getElementById('countryDropdown');
+
+// Function for adding unique weapon platforms/models of equipment
+function addUniqueOptions(dropdown, defaultValue, options) {
+    // Clearing current options
     dropdown.innerHTML = '';
-  
+
     // Adding a default value to the dropdown
     const defaultOption = document.createElement('option');
     defaultOption.value = defaultValue;
     defaultOption.text = 'All';
     dropdown.appendChild(defaultOption);
-  
-    // Adding unique types/models
+
+    // Adding unique weapon platforms/models
     options.forEach(option => {
-      const optionElement = document.createElement('option');
-      optionElement.value = option;
-      optionElement.text = option;
+        const optionElement = document.createElement('option');
+        optionElement.value = option;
+        optionElement.text = option;
 
-    // Checking if the dropdown does not contain such a value
-    if (!dropdownContainsValue(dropdown, option)) {
-        // If the value does not exist, add it to the dropdown
-        dropdown.appendChild(optionElement);
-    }
-    });
-  }
-
-    // Updating the dropdown with models based on the selected type
-    function updateModelDropdown(selectedType) {
-        const models = equipments
-        .filter(equipment => selectedType === 'All' || equipment.type === selectedType)
-        .map(equipment => equipment.model);
-    
-        addUniqueOptions(modelDropdown, 'All', models);
-    }
-
-    // Initializing the dropdown for equipment types
-    addUniqueOptions(typeDropdown, 'All', equipments.map(equipment => equipment.type));
-    
-
-    // Initializing the dropdown with all models
-    addUniqueOptions(modelDropdown, 'All', equipments.map(equipment => equipment.model));
-
-    // Adding an event handler for the dropdown of equipment types
-    typeDropdown.addEventListener('change', function () {
-    const selectedType = this.value;
-    updateModelDropdown(selectedType);
-    });
-
-    // Adding an event handler for the dropdown of equipment models
-    modelDropdown.addEventListener('change', function () {
-    // Event handler is here, if needed
-    });
-
-
-    document.getElementById("checkLosses").onclick = function() {
-        let amount1;
-        let amount2;
-        if(typeDropdown.value === 'All') {
-            amount1 = equipments.filter(tech => tech.side === 'Russia').length;
-            amount2 = equipments.filter(tech => tech.side === 'Ukraine').length;
-        } else {
-            amount1 = equipments.filter(tech => tech.type === typeDropdown.value && tech.side === 'Russia').length;
-            amount2 = equipments.filter(tech => tech.type === typeDropdown.value && tech.side === 'Ukraine').length;
+        // Checking if the dropdown does not contain such a value
+        if (!dropdownContainsValue(dropdown, option)) {
+            // If the value does not exist, add it to the dropdown
+            dropdown.appendChild(optionElement);
         }
-        document.getElementById("rusLosses").innerText = `${typeDropdown.value} : ${amount1}`;
-        document.getElementById("ukrLosses").innerText = `${typeDropdown.value} : ${amount2}`;    
+    });
+}
+
+// Updating the dropdown with models based on the selected weapon platform
+function updateModelDropdown(selectedWeaponPlatform) {
+    const models = equipments
+        .filter(equipment => selectedWeaponPlatform === 'All' || equipment.platform === selectedWeaponPlatform)
+        .map(equipment => equipment.model);
+
+    addUniqueOptions(modelDropdown, 'All', models);
+}
+
+// Initializing the dropdown for equipment weapon platforms
+addUniqueOptions(weaponPlatformDropdown, 'All', equipments.map(equipment => equipment.platform));
+
+// Initializing the dropdown with all models
+addUniqueOptions(modelDropdown, 'All', equipments.map(equipment => equipment.model));
+
+// Adding an event handler for the dropdown of equipment weapon platforms
+weaponPlatformDropdown.addEventListener('change', function () {
+    const selectedWeaponPlatform = this.value;
+    updateModelDropdown(selectedWeaponPlatform);
+});
+
+// Applying all available filters
+function applyFilters() {
+    const weaponPlatform = document.getElementById('weaponPlatformDropdown').value;
+    const model = document.getElementById('modelDropdown').value;
+    const state = document.getElementById('stateDropdown').value;
+    const sovietUnion = document.getElementById('sovietUnion').checked;
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value
+
+    const filteredResultsUkraine = equipments.filter(item =>
+        item.side === 'Ukraine' && (sovietUnion ? item.isSovietUnion === true : true) &&
+        (weaponPlatform === 'All' || item.platform === weaponPlatform) &&
+        (model == 'All' || item.model === model) &&
+        (state === 'allStates' || item.state.toLowerCase() === state) &&
+        (dateCheck(startDate, endDate, item.date))
+    );
+
+    const filteredResultsRussia = equipments.filter(item =>
+        item.side === 'Russia' && (sovietUnion ? item.isSovietUnion === true : true) &&
+        (weaponPlatform === 'All' || item.platform === weaponPlatform) &&
+        (model === 'All' || item.model === model) &&
+        (state === 'allStates' || item.state.toLowerCase() === state) &&
+        (dateCheck(startDate, endDate, item.date))
+    );
+
+    const filteredDataContainerUkraine = document.getElementById('ukrLosses');
+    filteredDataContainerUkraine.innerHTML = '';
+    const filteredDataContainerRussia = document.getElementById('rusLosses');
+    filteredDataContainerRussia.innerHTML = '';
+
+
+    const amountUkraine = filteredResultsUkraine.length;
+    const amountRussia = filteredResultsRussia.length;
+
+    if (amountUkraine === 0) {
+        const noResultsElement = document.createElement('div');
+        noResultsElement.textContent = 'No results found.';
+        filteredDataContainerUkraine.appendChild(noResultsElement);
     }
+    else {
+        filteredResultsUkraine.forEach(item => {
+            const itemElement = document.createElement('div');
+            const sovietUnion = item.isSovietUnion ? 'yes' : 'no';
+            itemElement.textContent = `Weapon platform: ${item.platform}, Model: ${item.model}, State: ${item.state}, Is Soviet-Union: ${sovietUnion}, Date: ${item.date}, Total: ${amountUkraine}`;
+            filteredDataContainerUkraine.appendChild(itemElement);
+        })
+    };
+
+    if (amountRussia === 0) {
+        const noResultsElement = document.createElement('div');
+        noResultsElement.textContent = 'No results found.';
+        filteredDataContainerRussia.appendChild(noResultsElement);
+    }
+    else {
+        filteredResultsRussia.forEach(item => {
+            const itemElement = document.createElement('div');
+            const sovietUnion = item.isSovietUnion ? 'yes' : 'no';
+            itemElement.textContent = `Weapon platform: ${item.platform}, Model: ${item.model}, State: ${item.state}, Is Soviet-Union: ${sovietUnion}, Date: ${item.date}, Total: ${amountRussia}`;
+            filteredDataContainerRussia.appendChild(itemElement);
+        })
+    };
+}
+
+document.getElementById("checkLosses").onclick = applyFilters;

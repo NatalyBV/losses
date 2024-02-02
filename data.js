@@ -8,6 +8,86 @@ let equipments = [
         "side": "Russia"
     },
     {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Destroyed",
+        "date": "April 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP-2",
+        "model": "T-62MV",
+        "state": "Damaged",
+        "date": "July 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BTR",
+        "model": "BTR-82A",
+        "state": "Abandoned",
+        "date": "October 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
         "platform": "BMP",
         "model": "BMP-2",
         "state": "Abandoned",
@@ -65,6 +145,150 @@ let equipments = [
     },
     {
         "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
         "model": "BMP-90",
         "state": "Abandoned",
         "date": "January 2024",
@@ -78,7 +302,177 @@ let equipments = [
         "date": "January 2024",
         "isSovietUnion": false,
         "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP-2",
+        "model": "T-62MV",
+        "state": "Damaged",
+        "date": "July 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Destroyed",
+        "date": "April 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP-2",
+        "model": "T-62MV",
+        "state": "Damaged",
+        "date": "July 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BTR",
+        "model": "BTR-82A",
+        "state": "Abandoned",
+        "date": "October 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-2",
+        "state": "Abandoned",
+        "date": "January 2024",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2023",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Destroyed",
+        "date": "March 2023",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "BMP",
+        "model": "BMP-4M",
+        "state": "Destroyed",
+        "date": "January 2024",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Damaged",
+        "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
     }
+
 ]
 
 // Function to check if the dropdown contains a specific value
@@ -111,6 +505,18 @@ function dateCheck(from, to, check) {
 
     return checkDate >= fromDate && checkDate <= toDate;
 }
+
+// Comparison function for sorting by weapon platform
+function compareByPlatform(a, b) {
+    if (a.platform < b.platform) {
+        return -1;
+    }
+    if (a.platform > b.platform) {
+        return 1;
+    }
+    return 0;
+}
+
 
 // Getting dropdown elements from the DOM
 const weaponPlatformDropdown = document.getElementById('weaponPlatformDropdown');
@@ -203,12 +609,16 @@ function applyFilters() {
         filteredDataContainerUkraine.appendChild(noResultsElement);
     }
     else {
+        filteredResultsUkraine.sort(compareByPlatform);
         filteredResultsUkraine.forEach(item => {
             const itemElement = document.createElement('div');
             const sovietUnion = item.isSovietUnion ? 'yes' : 'no';
-            itemElement.textContent = `Weapon platform: ${item.platform}, Model: ${item.model}, State: ${item.state}, Is Soviet-Union: ${sovietUnion}, Date: ${item.date}, Total: ${amountUkraine}`;
+            itemElement.textContent = `${item.platform}, ${item.model}, is Soviet-Union: ${sovietUnion}, ${item.date}, ${item.state}`;
             filteredDataContainerUkraine.appendChild(itemElement);
         })
+        const itemElement = document.createElement('div');
+        itemElement.textContent = `Total: ${amountUkraine}`;
+        filteredDataContainerUkraine.appendChild(itemElement);
     };
 
     if (amountRussia === 0) {
@@ -217,12 +627,16 @@ function applyFilters() {
         filteredDataContainerRussia.appendChild(noResultsElement);
     }
     else {
+        filteredResultsRussia.sort(compareByPlatform);
         filteredResultsRussia.forEach(item => {
             const itemElement = document.createElement('div');
             const sovietUnion = item.isSovietUnion ? 'yes' : 'no';
-            itemElement.textContent = `Weapon platform: ${item.platform}, Model: ${item.model}, State: ${item.state}, Is Soviet-Union: ${sovietUnion}, Date: ${item.date}, Total: ${amountRussia}`;
+            itemElement.textContent = `${item.platform}, ${item.model}, is Soviet-Union: ${sovietUnion}, ${item.date}, ${item.state}`;
             filteredDataContainerRussia.appendChild(itemElement);
         })
+        const itemElement = document.createElement('div');
+        itemElement.textContent = `Total: ${amountRussia}`;
+        filteredDataContainerRussia.appendChild(itemElement);
     };
 }
 

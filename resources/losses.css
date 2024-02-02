@@ -13,7 +13,7 @@ html {
 header {
   top: 0;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: 5rem;
   border-bottom: solid 0.0625rem #c6c1c1;
@@ -98,10 +98,11 @@ select, #startDate, #endDate {
   font-style: italic;
 }
 
-/* Styles for results button */
+/* Styles for results button and info tooltip */
 #buttonResults {
-  display: flex;
   justify-content: center;
+  position: relative;
+  display: inline-block;
 }
 
 #checkLosses {
@@ -118,6 +119,46 @@ select, #startDate, #endDate {
 
 #checkLosses:hover { /* Changing the button's background color on hover */
   background-color: #2980b9;
+}
+
+.info-icon {
+  font-size: 1rem;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: -1.2rem;
+  z-index: 2;
+}
+
+#infoIcon {
+  height: 1rem;
+  width: 1 rem;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  padding: 1.2rem;
+  border: 0.1rem solid #ccc;
+  z-index: 2;
+  width: 20rem;
+  height: 14rem;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 /* Styles for results */

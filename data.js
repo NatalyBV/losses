@@ -517,6 +517,16 @@ function compareByPlatform(a, b) {
     return 0;
 }
 
+// Functions for info pop-up
+function showInfoPopup() {
+    var popup = document.getElementById("infoPopup");
+    popup.style.display = "block";
+  }
+  
+  function hideInfoPopup() {
+    var popup = document.getElementById("infoPopup");
+    popup.style.display = "none";
+  }
 
 // Getting dropdown elements from the DOM
 const weaponPlatformDropdown = document.getElementById('weaponPlatformDropdown');

@@ -230,6 +230,8 @@ function applyFilters() {
         const itemElement = document.createElement('div');
         itemElement.textContent = `Total: ${amountUkraine}`;
         itemElement.style.fontWeight = 'bold';
+        itemElement.style.textAlign = 'center';
+        itemElement.style.marginTop = '1rem';
         filteredDataContainerUkraine.appendChild(itemElement);
     };
 
@@ -249,6 +251,8 @@ function applyFilters() {
         const itemElement = document.createElement('div');
         itemElement.textContent = `Total: ${amountRussia}`;
         itemElement.style.fontWeight = 'bold';
+        itemElement.style.textAlign = 'center';
+        itemElement.style.marginTop = '1rem';
         filteredDataContainerRussia.appendChild(itemElement);
     };
 }

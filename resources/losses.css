@@ -92,7 +92,7 @@ select, #startDate, #endDate {
   margin-bottom: 0.8rem;
 }
 
-#startDate::placeholder {
+#startDate::placeholder, #endDate::placeholder {
   font-size: 1rem;
   color: #999;
   font-style: italic;

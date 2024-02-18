@@ -8,33 +8,104 @@ function dropdownContainsValue(dropdown, value) {
     return false; // The value is not found
 }
 
+
+function getLastDayOfMonth(month, year) {
+    let monthNumber;
+    switch (month) {
+        case 'January':
+            monthNumber = 0;
+            break;
+        case 'February':
+            monthNumber = 1;
+            break;
+        case 'March':
+            monthNumber = 2;
+            break;
+        case 'April':
+            monthNumber = 3;
+            break;
+        case 'May':
+            monthNumber = 4;
+            break;
+        case 'June':
+            monthNumber = 5;
+            break;
+        case 'July':
+            monthNumber = 6;
+            break;
+        case 'August':
+            monthNumber = 7;
+            break;
+        case 'September':
+            monthNumber = 8;
+            break;
+        case 'October':
+            monthNumber = 9;
+            break;
+        case 'November':
+            monthNumber = 10;
+            break;
+        case 'December':
+            monthNumber = 11;
+            break;
+    }
+
+    // Creating a new date from the first day of the current year's month.
+    let lastDay = new Date(year, monthNumber + 1, 0);
+    // Getting the last day of the month
+    return lastDay.getDate();
+}
+
+
+
 // Checks if a given date is within a specified date range.
 function dateCheck(from, to, check) {
-    const parseDate = (dateString) => {
+    const parseFromToDate = (dateString) => {
         const [year, month, day] = dateString.split(' ');
+        return new Date(`${month} ${day}, ${year}`);
+    };
 
+    const parseItemDateIfEndDateFilterIsNotSet = (dateString) => {
+        const [year, month, day] = dateString.split(' ');
         if (day) {
             // Use the specified day if exists
             return new Date(`${month} ${day}, ${year}`);
         } else {
-            // If the day is not specified, use the last day of the month
+            // If the day for the item is not specified and only the 'start date' filter set by a user, 
+            // set it to the last day of the month to include this item in the results.
+            const lastMonthDay = getLastDayOfMonth(month, year);
+            return new Date(`${month} ${lastMonthDay}, ${year}`);
+        }
+    };
+
+    const parseItemDateIfEndDateFilterIsSet = (dateString) => {
+        const [year, month, day] = dateString.split(' ');
+        if (day) {
+            // Use the specified day if exists
+            return new Date(`${month} ${day}, ${year}`);
+        } else {
+            // If the day for the item is not specified and the 'end date' filter is set by a user,
+            // set it to the first day of the month to include this item in the results.
             return new Date(`${month} 1, ${year}`);
         }
     };
 
-    const fromDate = from ? parseDate(from) : null;
-    const toDate = to ? parseDate(to) : null;
-    const checkDate = parseDate(check);
+    const fromDate = from ? parseFromToDate(from) : null;
+    const toDate = to ? parseFromToDate(to) : null;
 
-    if(from && to) {
+    if (from && to) {
+        const checkDate = parseItemDateIfEndDateFilterIsSet(check);
         return checkDate >= fromDate && checkDate <= toDate;
-    } else if(from && !to) {
+    } else if (from && !to) {
+        const checkDate = parseItemDateIfEndDateFilterIsNotSet(check);
         return checkDate >= fromDate;
-    } else if(!from && to) {
+    } else if (!from && to) {
+        const checkDate = parseItemDateIfEndDateFilterIsSet(check);
         return checkDate <= toDate;
     }
     return true;
 }
+
 
 // Comparison function for sorting by weapon platform
 function compareByPlatform(a, b) {
@@ -51,12 +122,12 @@ function compareByPlatform(a, b) {
 function showInfoPopup() {
     var popup = document.getElementById("infoPopup");
     popup.style.display = "block";
-  }
-  
-  function hideInfoPopup() {
+}
+
+function hideInfoPopup() {
     var popup = document.getElementById("infoPopup");
     popup.style.display = "none";
-  }
+}
 
 // Getting dropdown elements from the DOM
 const weaponPlatformDropdown = document.getElementById('weaponPlatformDropdown');

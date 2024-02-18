@@ -2,7 +2,7 @@ let equipments = [
     {
         "platform": "Tanks",
         "model": "T-62MV",
-        "state": "Destroyed",
+        "state": "Captured",
         "date": "January 2023",
         "isSovietUnion": true,
         "side": "Russia"
@@ -18,7 +18,7 @@ let equipments = [
     {
         "platform": "Tanks",
         "model": "T-62MV",
-        "state": "Destroyed",
+        "state": "Damaged",
         "date": "January 2023",
         "isSovietUnion": false,
         "side": "Russia"
@@ -42,7 +42,7 @@ let equipments = [
     {
         "platform": "Tanks",
         "model": "T-62MV",
-        "state": "Destroyed",
+        "state": "Damaged",
         "date": "January 2023",
         "isSovietUnion": true,
         "side": "Russia"
@@ -58,7 +58,7 @@ let equipments = [
     {
         "platform": "Tanks",
         "model": "T-62MV",
-        "state": "Destroyed",
+        "state": "Abandoned",
         "date": "January 2023",
         "isSovietUnion": true,
         "side": "Russia"
@@ -82,7 +82,7 @@ let equipments = [
     {
         "platform": "Tanks",
         "model": "T-62MV",
-        "state": "Destroyed",
+        "state": "Abandoned",
         "date": "January 2023",
         "isSovietUnion": true,
         "side": "Russia"
@@ -469,6 +469,22 @@ let equipments = [
         "model": "Mi-24",
         "state": "Damaged",
         "date": "June 2022",
+        "isSovietUnion": true,
+        "side": "Russia"
+    },
+    {
+        "platform": "Tanks",
+        "model": "T-62MV",
+        "state": "Destroyed",
+        "date": "2022 15 April",
+        "isSovietUnion": false,
+        "side": "Russia"
+    },
+    {
+        "platform": "Helicopters",
+        "model": "Mi-24",
+        "state": "Destroyed",
+        "date": "April 2023",
         "isSovietUnion": true,
         "side": "Russia"
     }

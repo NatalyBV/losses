@@ -22,11 +22,18 @@ function dateCheck(from, to, check) {
         }
     };
 
-    const fromDate = parseDate(from);
-    const toDate = parseDate(to);
+    const fromDate = from ? parseDate(from) : null;
+    const toDate = to ? parseDate(to) : null;
     const checkDate = parseDate(check);
 
-    return checkDate >= fromDate && checkDate <= toDate;
+    if(from && to) {
+        return checkDate >= fromDate && checkDate <= toDate;
+    } else if(from && !to) {
+        return checkDate >= fromDate;
+    } else if(!from && to) {
+        return checkDate <= toDate;
+    }
+    return true;
 }
 
 // Comparison function for sorting by weapon platform

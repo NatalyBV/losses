@@ -7,7 +7,7 @@ flatpickr("#startDate", {
     maxDate: "today",
     defaultDate: "2022 Feb 24",
     onChange: function(selectedDates, dateStr) {
-        var endDatePicker = document.getElementById("endDate")._flatpickr;
+        const endDatePicker = document.getElementById("endDate")._flatpickr;
         endDatePicker.set("minDate", dateStr);
     }
 });

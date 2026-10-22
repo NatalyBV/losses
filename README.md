@@ -16,9 +16,10 @@ An interactive, data-driven web application designed to track, filter, and visua
 ---
 
 ## Features & Functionality
-**Advanced Equipment Filtering:** Filter losses dynamically by equipment type, manufacturer, or model.
-**Status Tracking:** Breakdown of equipment disposition categories: Damaged, Destroyed, or Abandoned.
-**Time-Series Querying:** Allows users to choose specific dates to see losses for that period
+
+* **Advanced Equipment Filtering:** Filter losses dynamically by equipment type, manufacturer, or model.
+* **Status Tracking:** Breakdown of equipment disposition categories: Damaged, Destroyed, or Abandoned.
+* **Time-Series Querying:** Allows users to choose specific dates to see losses for that period
 
 ## Data Source
 The project utilizes a selected subset of mock data based on the open-source intelligence datasets by **Jakub Janovsky** (Oryx community). This dataset serves as seed data to demonstrate and validate the client-side filtering.

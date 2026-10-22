@@ -32,22 +32,3 @@ The project utilizes a selected subset of mock data based on the open-source int
   * `data.js` — Structured data schemas hosting baseline chronological statistics.
   * `calendar.js` — Isolated component logic executing complex date-range calculations and calendar parsing.
 
----
-
-## Local Installation & Quick Start
-
-1. Clone the repository locally:
-   ```bash
-   git clone https://github.com
-   ```
-2. Navigate into the project folder:
-   ```bash
-   cd losses
-   ```
-3. Open `losses.html` directly in any modern web browser to run the dashboard instantly.
-
----
-
-## QA & Testing Engineering Insights
-
-This project serves as an active sandbox for validating high-frequency client-side data parsing and sorting logic

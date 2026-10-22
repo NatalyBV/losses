@@ -11,7 +11,8 @@ _Losses data is taken from a Twitter account of Jakub Janovsky: https://x.com/Re
 
 An interactive, data-driven web application designed to track, filter, and visualize military equipment losses during the Russia-Ukraine war. The dashboard provides analytics by categorizing assets by equipment type, precise models, and state of equipment.
 
-🔗 **Live Demo:** * natalybv.github.io/losses/ *
+🔗 **Live Demo:** [natalybv.github.io/losses](https://github.io)
+
 ---
 
 ## Features & Functionality

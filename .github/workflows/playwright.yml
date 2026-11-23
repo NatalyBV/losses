@@ -2,7 +2,7 @@ name: Playwright Tests
 
 on:
   push:
-    branches: [ main, feat/autotests ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -26,8 +26,11 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps chromium
 
-      - name: Run Playwright tests
-        run: pytest --tracing=retain-on-failure
+      - name: Run Playwright tests against local server
+        run: |
+          python -m http.server 8000 &
+          sleep 2
+          pytest --base-url http://localhost:8000 --tracing=retain-on-failure
 
       - name: Upload test results on failure
         uses: actions/upload-artifact@v4

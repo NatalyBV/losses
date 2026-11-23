@@ -27,3 +27,21 @@ def test_check_losses_interaction(page: Page):
     state_select.select_option(label="Destroyed")
 
     page.locator("#checkLosses").click()
+
+
+def test_check_losses_tooltip_opens_notification(page: Page):
+    """Clicking the Check losses tooltip opens a visible notification with the exact text."""
+    page.goto("")
+
+    page.get_by_role("img", name="Check losses info").click()
+
+    notification = page.locator("#infoPopup")
+    expect(notification).to_be_visible()
+    expect(notification.locator("p").nth(0)).to_have_text(
+        "Extracted data originating from Jakub Janovsky's Twitter account: https://twitter.com/Rebel44CZ."
+    )
+    expect(notification.locator("p").nth(1)).to_have_text(
+        "The list only includes destroyed vehicles and equipment of which photo or videographic evidence is available. "
+        "The amount of equipment destroyed is significantly higher than recorded. "
+        "The list is constantly updated as additional footage becomes available."
+    )
